@@ -54,6 +54,5 @@ public class CardPresenter : MonoBehaviour
     private void Start()
     {
         SetCard(cards[0], view);
-
     }
 }
