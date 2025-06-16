@@ -1,2 +1,18 @@
 fileFormatVersion: 2
 guid: cb6399175504cba409ebe47460b9cbba
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - view: {instanceID: 0}
+  - grabAttackSprite: {fileID: 21300000, guid: a654ca22388afb14fb29e094a8f6b93f, type: 3}
+  - grabDefenseSprite: {fileID: 21300000, guid: 36096042e4dc386449c15175a240185b, type: 3}
+  - punchAttackSprite: {fileID: 21300000, guid: 77f293d59cabbee4f82979c42e58679f, type: 3}
+  - punchDefenseSprite: {fileID: 21300000, guid: 4f3c87946e7ecf0419d473faec149343, type: 3}
+  - kickAttackSprite: {fileID: 21300000, guid: 07011c4f42a1e1b458efc831181c51db, type: 3}
+  - kickDefenseSprite: {fileID: 21300000, guid: 68c1efe69e9f89f4f9374807a7dfc0f7, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardView : MonoBehaviour
 {
-    public TextMeshPro powerDisplay;
-    public TextMeshPro cardNameDisplay;
-    public TextMeshPro attackSlotssDisplay;
-    public SpriteRenderer sprite;
-    public SpriteRenderer type;
+    public TextMeshProUGUI powerDisplay;
+    public TextMeshProUGUI cardNameDisplay;
+    public TextMeshProUGUI attackSlotssDisplay;
+    public Image sprite;
+    public Image type;
 }
