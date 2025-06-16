@@ -18,7 +18,7 @@ public class ButtonLineManager : MonoBehaviour
         Button[] allButtons = canvas.GetComponentsInChildren<Button>();
         foreach (Button btn in allButtons)
         {
-            btn.onClick.AddListener(() => OnButtonClick(btn));
+                btn.onClick.AddListener(() => OnButtonClick(btn));
         }
     }
     void Update()
@@ -40,56 +40,93 @@ public class ButtonLineManager : MonoBehaviour
 {
     RectTransform rect = clickedButton.GetComponent<RectTransform>();
     bool isPlayerCard = clickedButton.CompareTag("PlayerCard");
+    bool isEnemyCard = clickedButton.CompareTag("EnemyCard");
+
+    // === INICIO DE CONEXIÓN ===
     if (!isDrawing)
     {
         if (!isPlayerCard)
         {
+            Debug.Log("Solo los botones con el tag 'PlayerCard' pueden iniciar una conexión.");
             return;
         }
-        RemoveConnections(rect);
+
+        // Si ya tiene conexión previa como origen, eliminarla
+        if (linesByButton.ContainsKey(rect))
+        {
+            RemoveConnections(rect);
+        }
+
+        // Crear línea nueva
         GameObject newLineObj = Instantiate(linePrefab);
         LineRenderer newLine = newLineObj.GetComponent<LineRenderer>();
         newLine.positionCount = 2;
         newLine.enabled = true;
+
         currentStart = rect;
         currentLine = newLine;
         isDrawing = true;
     }
     else
     {
+        // === DESTINO DE CONEXIÓN ===
         bool destIsPlayerCard = isPlayerCard;
         bool originIsPlayerCard = currentStart.GetComponent<Button>().CompareTag("PlayerCard");
-        if (!destIsPlayerCard || (originIsPlayerCard && destIsPlayerCard))
+
+        // Solo se permiten conexiones si:
+        // - PlayerCard → EnemyCard
+        // - PlayerCard → PlayerCard
+        if (originIsPlayerCard && (destIsPlayerCard || isEnemyCard))
         {
-            if (destIsPlayerCard)
+            // Si el destino ya tiene línea, la eliminamos
+            if (linesByButton.ContainsKey(rect))
             {
                 RemoveConnections(rect);
             }
+
+            // Crear la línea visual
             Vector3 startPos = GetWorldPosition(currentStart);
             Vector3 endPos = GetWorldPosition(rect);
 
             currentLine.SetPosition(0, startPos);
             currentLine.SetPosition(1, endPos);
+
+            // Registrar línea en origen
             linesByButton[currentStart] = new List<LineRenderer> { currentLine };
-            if (destIsPlayerCard)
+
+            // Obtener info del botón origen
+            PlayerCardInfo originInfo = currentStart.GetComponent<PlayerCardInfo>();
+            if (originInfo != null)
             {
-                PlayerCardInfo info = rect.GetComponent<PlayerCardInfo>();
-                if (info != null)
+                if (destIsPlayerCard)
                 {
-                    info.childCards.Add(currentStart.gameObject);
+                    // El destino guarda referencia al origen
+                    PlayerCardInfo destInfo = rect.GetComponent<PlayerCardInfo>();
+                    if (destInfo != null)
+                    {
+                        destInfo.childCards.Add(currentStart.gameObject);
+                        currentStart.GetComponent<PlayerCardInfo>().isACardChild = true;
+                    }
+                }
+                else if (isEnemyCard)
+                {
+                    // El origen guarda referencia al enemigo
+                    originInfo.ClashCard = rect.gameObject;
                 }
             }
+
+            // Finalizar conexión
             currentStart = null;
             currentLine = null;
             isDrawing = false;
         }
         else
         {
-            Debug.Log("Conexión no permitida.");
             CancelCurrentLine();
         }
     }
 }
+
     public void CancelCurrentLine()
     {
         if (currentLine != null)
@@ -112,6 +149,14 @@ public class ButtonLineManager : MonoBehaviour
             }
         }
         linesByButton.Clear();
+        Button[] allButtons = canvas.GetComponentsInChildren<Button>();
+        foreach (Button btn in allButtons)
+        {
+            if (btn.CompareTag("PlayerCard"))
+            {
+                btn.GetComponent<PlayerCardInfo>().isACardChild = false;
+            }
+        }
     }
 
     Vector3 GetWorldPosition(RectTransform rectTransform)

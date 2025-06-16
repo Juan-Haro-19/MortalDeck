@@ -412,10 +412,10 @@ RectTransform:
   - {fileID: 1824458016}
   m_Father: {fileID: 1697980070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -92.492, y: 78.601}
-  m_SizeDelta: {x: 183.983, y: 150.002}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 150, y: 99.999}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631717697
 MonoBehaviour:
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 634022153}
   m_Layer: 5
   m_Name: EnemyHability1
-  m_TagString: Untagged
+  m_TagString: EnemyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -644,6 +644,7 @@ GameObject:
   - component: {fileID: 668186740}
   - component: {fileID: 668186739}
   - component: {fileID: 668186738}
+  - component: {fileID: 668186741}
   m_Layer: 5
   m_Name: hability3
   m_TagString: PlayerCard
@@ -753,6 +754,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668186736}
   m_CullTransparentMesh: 1
+--- !u!114 &668186741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668186736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35e3e6b8cec0074cbde1426adfae252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childCards: []
+  ClashCard: {fileID: 0}
 --- !u!1 &718172131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1134,7 @@ GameObject:
   - component: {fileID: 997853741}
   - component: {fileID: 997853740}
   - component: {fileID: 997853739}
+  - component: {fileID: 997853742}
   m_Layer: 5
   m_Name: hability2
   m_TagString: PlayerCard
@@ -1228,6 +1244,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997853737}
   m_CullTransparentMesh: 1
+--- !u!114 &997853742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997853737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35e3e6b8cec0074cbde1426adfae252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childCards: []
+  ClashCard: {fileID: 0}
 --- !u!1 &1035022565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,7 +1410,7 @@ GameObject:
   - component: {fileID: 1043118632}
   m_Layer: 5
   m_Name: EnemyHability3
-  m_TagString: Untagged
+  m_TagString: EnemyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1499,6 +1529,7 @@ GameObject:
   - component: {fileID: 1129100136}
   - component: {fileID: 1129100135}
   - component: {fileID: 1129100134}
+  - component: {fileID: 1129100137}
   m_Layer: 5
   m_Name: hability1
   m_TagString: PlayerCard
@@ -1608,6 +1639,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129100132}
   m_CullTransparentMesh: 1
+--- !u!114 &1129100137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129100132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35e3e6b8cec0074cbde1426adfae252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childCards: []
+  ClashCard: {fileID: 0}
 --- !u!1 &1301201102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,7 +1943,7 @@ GameObject:
   - component: {fileID: 1579821790}
   m_Layer: 5
   m_Name: EnemyHability2
-  m_TagString: Untagged
+  m_TagString: EnemyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2247,7 +2292,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.9
+  m_fontSize: 46.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
