@@ -155,6 +155,9 @@ public class ButtonLineManager : MonoBehaviour
             if (btn.CompareTag("PlayerCard"))
             {
                 btn.GetComponent<PlayerCardInfo>().isACardChild = false;
+                btn.GetComponent<PlayerCardInfo>().childCards.Clear();
+                btn.GetComponent<PlayerCardInfo>().ClashCard = null;
+                
             }
         }
     }
