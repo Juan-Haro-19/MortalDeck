@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c30eef7f8d0d045b58e66c97136e3e, type: 3}
+  m_Name: sidestep
+  m_EditorClassIdentifier: 
+  cardName: sidestep
+  type: 3
+  power: 3
+  attackSlots: 2
+  sprite: {fileID: 21300000, guid: ed45b8759f8ef2449a40762c1e4ff606, type: 3}
