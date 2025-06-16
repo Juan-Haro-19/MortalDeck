@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c30eef7f8d0d045b58e66c97136e3e, type: 3}
+  m_Name: High kick
+  m_EditorClassIdentifier: 
+  cardName: High kick
+  type: 4
+  power: 5
+  attackSlots: 3
+  sprite: {fileID: 21300000, guid: 0b89dac89ab1bf94cb426cf0ef6e002b, type: 3}

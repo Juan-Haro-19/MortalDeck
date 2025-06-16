@@ -13,6 +13,8 @@ public class CardPresenter : MonoBehaviour
     public Sprite kickAttackSprite;
     public Sprite kickDefenseSprite;
 
+    private int index;
+
     public void SetCard(CardData _data, CardView _view)
     {
         _view.powerDisplay.text = _data.power.ToString();
@@ -46,13 +48,20 @@ public class CardPresenter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            int i = Random.Range(0, cards.Count);
-            SetCard(cards[i], view);
+            //int i = Random.Range(0, cards.Count);
+            if (index >= cards.Count - 1)
+                index = 0;
+            else
+                index++;
+                
+            
+            SetCard(cards[index], view);
         }
     }
 
     private void Start()
     {
-        SetCard(cards[0], view);
+        index = 0;
+        SetCard(cards[index], view);
     }
 }
