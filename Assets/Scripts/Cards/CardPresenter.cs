@@ -63,6 +63,5 @@ public class CardPresenter : MonoBehaviour
     {
         index = 0;
         SetCard(cards[index], view);
-
     }
 }
